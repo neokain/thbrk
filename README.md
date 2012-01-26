@@ -6,7 +6,7 @@ Gem of Thai Word Break plugin for use with Thinking Sphinx.
 
 Can do follow this https://github.com/neokain/libthai4r
 
-### Bundler
+### Gemfile
 
 	gem 'thbrk'  	
 
@@ -52,4 +52,4 @@ In your 'config/sphinx.yml'
 
 ## License
 
-Copyright (c) 2010 Phuwanart Larpmark, released under the MIT license
+Copyright © 2011 Phuwanart Larpmark, released under the MIT license
