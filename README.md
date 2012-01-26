@@ -1,8 +1,8 @@
 # Thbrk
 
-Gem of Thai Word Break plugin for use with Thinking Sphinx.
+Gem Thai Word Break for use with Thinking Sphinx.
 
-## Install libthai & libthai4r
+## Install dependency: libthai & libthai4r
 
 Can do follow this https://github.com/neokain/libthai4r
 
@@ -29,15 +29,15 @@ In your model:
   
 In your migrations:
 
-      class AddThbrkColumnToArticle < ActiveRecord::Migration
-        def self.up
-            add_column :articles, :thbrk, :text
-        end
-        
-        def self.down
-            remove_column :articles, :thbrk, :text
-        end
+    class AddThbrkColumnToArticle < ActiveRecord::Migration
+      def self.up
+          add_column :articles, :thbrk, :text
       end
+      
+      def self.down
+          remove_column :articles, :thbrk, :text
+      end
+    end
 
 In your 'config/sphinx.yml'
 
