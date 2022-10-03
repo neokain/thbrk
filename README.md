@@ -19,15 +19,18 @@ In your model:
 ```ruby
 class Article < ActiveRecord::Base
   thbrk # include when use plugin
-
   define_thai_columns :title, :body # include when use plugin
+end
+```
 
-  define_index do
-    indexes :title
-    indexes :body
-    ...
-    indexes :thbrk # include when use plugin
-  end
+In index file:
+
+```ruby
+# app/indices/article_index.rb
+ThinkingSphinx::Index.define :article, with: :real_time do
+  indexes title, sortable: true
+  indexes body
+  indexes thbrk # include when use plugin
 end
 ```
 
@@ -35,17 +38,13 @@ In your migrations:
 
 ```ruby
 class AddThbrkColumnToArticle < ActiveRecord::Migration
-  def self.up
+  def change
     add_column :articles, :thbrk, :text
-  end
-
-  def self.down
-    remove_column :articles, :thbrk, :text
   end
 end
 ```
 
-In your 'config/sphinx.yml'
+In your 'config/thinking_sphinx.yml'
 
 ```yml
 development:
